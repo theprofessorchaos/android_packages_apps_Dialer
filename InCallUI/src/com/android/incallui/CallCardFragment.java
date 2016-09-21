@@ -143,6 +143,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
     private ViewGroup mPrimaryCallInfo;
     private View mCallButtonsContainer;
     private ImageView mPhotoSmall;
+    private TextView mRecordingTime;
 
     // Secondary caller info
     private View mSecondaryCallInfo;
@@ -191,6 +192,31 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
      * Determines if secondary call info is populated in the secondary call info UI.
      */
     private boolean mHasSecondaryCallInfo = false;
+
+    private CallRecorder.RecordingProgressListener mRecordingProgressListener =
+            new CallRecorder.RecordingProgressListener() {
+        @Override
+        public void onStartRecording() {
+            mRecordingTime.setText(DateUtils.formatElapsedTime(0));
+            if (mRecordingTime.getVisibility() != View.VISIBLE) {
+                AnimUtils.fadeIn(mRecordingTime, AnimUtils.DEFAULT_DURATION);
+            }
+        }
+
+        @Override
+        public void onStopRecording() {
+            AnimUtils.fadeOut(mRecordingTime, AnimUtils.DEFAULT_DURATION);
+        }
+
+        @Override
+        public void onRecordingTimeProgress(final long elapsedTimeMs) {
+            long elapsedSeconds = (elapsedTimeMs + 500) / 1000;
+            mRecordingTime.setText(DateUtils.formatElapsedTime(elapsedSeconds));
+
+            // make sure this is visible in case we re-loaded the UI for a call in progress
+            mRecordingTime.setVisibility(View.VISIBLE);
+        }
+    };
 
     @Override
     public CallCardPresenter.CallCardUi getUi() {
@@ -334,6 +360,18 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
         mPrimaryName.setElegantTextHeight(false);
         mCallStateLabel.setElegantTextHeight(false);
         mCallSubject = (TextView) view.findViewById(R.id.callSubject);
+        mRecordingTime = (TextView) view.findViewById(R.id.recordingTime);
+
+        CallRecorder recorder = CallRecorder.getInstance();
+        recorder.addRecordingProgressListener(mRecordingProgressListener);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        CallRecorder recorder = CallRecorder.getInstance();
+        recorder.removeRecordingProgressListener(mRecordingProgressListener);
     }
 
     @Override

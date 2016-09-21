@@ -31,4 +31,8 @@
     <string name="prox_auto_speaker_incall_only_title">Только во время вызова</string>
     <string name="prox_auto_speaker_incall_only_summary_on">При исходящих звонках функция активируется только после ответа на вызов</string>
     <string name="prox_auto_speaker_incall_only_summary_off">Функция активна при любых вызовах (по умолчанию)</string>
-</resources> 
+
+    <string name="call_recording_category_title">Запись вызова</string>
+    <string name="call_recording_format">Формат аудио</string>
+    <string name="call_playback_no_app_found_toast">Не найдено приложение, которое может воспроизвести выбранную запись.</string>
+</resources>
