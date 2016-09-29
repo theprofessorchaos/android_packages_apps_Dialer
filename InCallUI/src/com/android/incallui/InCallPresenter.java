@@ -115,6 +115,7 @@ public class InCallPresenter implements CallList.Listener,
     private CallList mCallList;
     private InCallActivity mInCallActivity;
     private InCallState mInCallState = InCallState.NO_CALLS;
+    private AccelerometerListener mAccelerometerListener;
     private ProximitySensor mProximitySensor;
     private boolean mServiceConnected = false;
     private boolean mAccountSelectionCancelled = false;
@@ -331,6 +332,8 @@ public class InCallPresenter implements CallList.Listener,
 
         addIncomingCallListener(mAnswerPresenter);
         addInCallUiListener(mAnswerPresenter);
+
+        mAccelerometerListener = new AccelerometerListener(context);
 
         mCallList = callList;
 
@@ -633,6 +636,10 @@ public class InCallPresenter implements CallList.Listener,
         Log.i(this, "Phone switching state: " + oldState + " -> " + newState);
         mInCallState = newState;
 
+        if (!newState.isIncoming() && mAccelerometerListener != null) {
+            mAccelerometerListener.enableSensor(false);
+        }
+
         // notify listeners of new state
         for (InCallStateListener listener : mListeners) {
             Log.d(this, "Notify " + listener + " of state " + mInCallState.toString());
@@ -658,6 +665,10 @@ public class InCallPresenter implements CallList.Listener,
 
         Log.i(this, "Phone switching state: " + oldState + " -> " + newState);
         mInCallState = newState;
+
+        if (newState.isIncoming() && mAccelerometerListener != null) {
+            mAccelerometerListener.enableSensor(true);
+        }
 
         for (IncomingCallListener listener : mIncomingCallListeners) {
             listener.onIncomingCall(oldState, mInCallState, call);
@@ -887,6 +898,10 @@ public class InCallPresenter implements CallList.Listener,
      * Answers any incoming call.
      */
     public void answerIncomingCall(Context context, int videoState) {
+        // Just in case
+        if (mAccelerometerListener != null) {
+            mAccelerometerListener.enableSensor(false);
+        }
         // By the time we receive this intent, we could be shut down and call list
         // could be null.  Bail in those cases.
         if (mCallList == null) {
@@ -905,6 +920,10 @@ public class InCallPresenter implements CallList.Listener,
      * Declines any incoming call.
      */
     public void declineIncomingCall(Context context) {
+        // Just in case
+        if (mAccelerometerListener != null) {
+            mAccelerometerListener.enableSensor(false);
+        }
         // By the time we receive this intent, we could be shut down and call list
         // could be null.  Bail in those cases.
         if (mCallList == null) {
@@ -1116,6 +1135,9 @@ public class InCallPresenter implements CallList.Listener,
         if (incomingCall != null) {
             TelecomAdapter.getInstance().answerCall(
                     incomingCall.getId(), VideoProfile.STATE_AUDIO_ONLY);
+            if (mAccelerometerListener != null) {
+                mAccelerometerListener.enableSensor(false);
+            }
             return true;
         }
 
@@ -1504,6 +1526,8 @@ public class InCallPresenter implements CallList.Listener,
                 mProximitySensor.tearDown();
             }
             mProximitySensor = null;
+
+            mAccelerometerListener = null;
 
             mAudioModeProvider = null;
 
