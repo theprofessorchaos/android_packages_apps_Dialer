@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015 Nitrogen Project
+
+	 Licensed under the Apache License, Version 2.0 (the "License");
+	 you may not use this file except in compliance with the License.
+	 You may obtain a copy of the License at
+
+		  http://www.apache.org/licenses/LICENSE-2.0
+
+	 Unless required by applicable law or agreed to in writing, software
+	 distributed under the License is distributed on an "AS IS" BASIS,
+	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 See the License for the specific language governing permissions and
+	 limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="incall_vibration_category_title">Vibrácie počas hovoru</string>
+    <string name="incall_vibrate_outgoing_title">Zavibrovať po prijatí</string>
+    <string name="incall_vibrate_hangup_title">Zavibrovať po položení</string>
+    <string name="incall_vibrate_45_title">Zavibrovať kažfú minútu</string>
+    <string name="incall_vibrate_45_summary">Počas odchádzajúceho hovoru zavibrovať každú 45. sekundu</string>
+
+    <!-- Proximity speaker -->
+    <string name="speaker_settings_label">Snímač priblíženia a hlasitý odposluch</string>
+    <string name="prox_auto_speaker_title">Zapnutie hlasitého odposluchu</string>
+    <string name="prox_auto_speaker_summary">Automatické zapnutie hlasitého odposluchu, keď sa telefón vzdiali od ucha</string>
+    <string name="prox_auto_speaker_delay_title">Oneskorenie hlasitého odposluchu</string>
+    <string name="prox_auto_speaker_delay_dialog_title">Oneskorenie zapnutia hlasitého odposluchu v (ms)</string>
+    <string name="prox_auto_speaker_delay_summary">Hlasitý odposluch bude zapnutý za <xliff:g id="number">%d</xliff:g> ms</string>
+    <string name="prox_auto_speaker_incall_only_title">Iba počas hovoru</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">Pre odchádzajúce hovory je funkcia aktivovaná len potom, čo bol hovor prijatý</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">Táto funkcia bude aktívna u všetkých hovorov (predvolené)</string>
+
+    <string name="call_recording_category_title">Nahrávanie hovorov</string>
+    <string name="call_recording_format">zvukový formát</string>
+    <string name="call_playback_no_app_found_toast">Nenašla sa aplikácia, ktorá je schopná prehrať vybrané nahrávky.</string>
+</resources>
