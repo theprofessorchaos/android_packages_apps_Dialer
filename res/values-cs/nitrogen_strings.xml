@@ -18,7 +18,7 @@
     <string name="incall_vibration_category_title">Vibrace během hovoru</string>
     <string name="incall_vibrate_outgoing_title">Zavibrovat po přijetí</string>
     <string name="incall_vibrate_hangup_title">Zavibrovat po položení</string>
-    <string name="incall_vibrate_45_title">Zavibrovat každou minútu</string>
+    <string name="incall_vibrate_45_title">Zavibrovat každou minutu</string>
     <string name="incall_vibrate_45_summary">Během odchozího hovoru zavibrovat každou 45. sekundu</string>
 
     <!-- Proximity speaker -->
