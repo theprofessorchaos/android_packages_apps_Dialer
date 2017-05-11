@@ -369,7 +369,6 @@ public class Call {
     private final List<String> mChildCallIds = new ArrayList<>();
     private final VideoSettings mVideoSettings = new VideoSettings();
     private int mVideoState;
-    private boolean mIsOutgoing = false;
 
     /**
      * mRequestedVideoState is used to store requested upgrade / downgrade video state
@@ -660,19 +659,12 @@ public class Call {
 
     public void setState(int state) {
         mState = state;
-        if (state == State.DIALING || state == State.CONNECTING) {
-            mIsOutgoing = true;
-        }
         if (mState == State.INCOMING) {
             mLogState.isIncoming = true;
         } else if (mState == State.DISCONNECTED) {
             mLogState.duration = getConnectTimeMillis() == 0 ?
                     0: System.currentTimeMillis() - getConnectTimeMillis();
         }
-    }
-
-    public boolean isOutgoing() {
-        return mIsOutgoing;
     }
 
     public int getNumberPresentation() {
