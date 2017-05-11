@@ -48,7 +48,6 @@ public class SoundSettingsFragment extends PreferenceFragment
     private static final int NO_VIBRATION_FOR_CALLS = 0;
     private static final int DO_VIBRATION_FOR_CALLS = 1;
 
-    private static final String CATEGORY_INCALL_VIBRATION_KEY = "dialer_general_incall_vibration_category_key";
 
     private static final int DTMF_TONE_TYPE_NORMAL = 0;
 
