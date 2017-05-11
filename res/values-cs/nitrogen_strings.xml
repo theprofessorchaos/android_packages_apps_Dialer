@@ -21,17 +21,6 @@
     <string name="incall_vibrate_45_title">Zavibrovat každou minutu</string>
     <string name="incall_vibrate_45_summary">Během odchozího hovoru zavibrovat každou 45. sekundu</string>
 
-    <!-- Proximity speaker -->
-    <string name="speaker_settings_label">Snímač přiblížení a hlasitý odposlech</string>
-    <string name="prox_auto_speaker_title">Zapnutí hlasitého odposlechu</string>
-    <string name="prox_auto_speaker_summary">Automatické zapnutí hlasitého odposlechu, pokud se telefon vzdálí od ucha</string>
-    <string name="prox_auto_speaker_delay_title">Zpoždění hlasitého odposlechu</string>
-    <string name="prox_auto_speaker_delay_dialog_title">Zpoždění zapnutí hlasitého odposlechu v (ms)</string>
-    <string name="prox_auto_speaker_delay_summary">Hlasitý odposlech bude zapnutý za <xliff:g id="number">%d</xliff:g> ms</string>
-    <string name="prox_auto_speaker_incall_only_title">Jen během hovoru</string>
-    <string name="prox_auto_speaker_incall_only_summary_on">Pro odchozí hovory je funkce aktivovaná pouze po přijetí hovoru</string>
-    <string name="prox_auto_speaker_incall_only_summary_off">Tato funkce bude aktívní u všech hovorů (předvolené)</string>
-
     <string name="call_recording_category_title">Nahrávání hovorů</string>
     <string name="call_recording_format">zvukový formát</string>
     <string name="call_playback_no_app_found_toast">Nenašla sa aplikace, která je schopna přehrát vybrané nahrávky.</string>

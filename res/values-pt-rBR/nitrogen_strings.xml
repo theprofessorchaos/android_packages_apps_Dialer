@@ -20,16 +20,6 @@
   <string name="incall_vibrate_hangup_title">Vibrar ao desligar a chamada</string>
   <string name="incall_vibrate_45_title">Vibrar a cada minuto</string>
   <string name="incall_vibrate_45_summary">Vibrar na marca de 45 segundos de cada minuto durante chamadas de saída</string>
-  <!-- Proximity speaker -->
-  <string name="speaker_settings_label">Auto-falante de proximidade</string>
-  <string name="prox_auto_speaker_title">Viva-voz de proximidade automático</string>
-  <string name="prox_auto_speaker_summary">Ativar o viva-voz automaticamente quando o telefone é afastado da sua orelha</string>
-  <string name="prox_auto_speaker_delay_title">Atraso do viva-voz</string>
-  <string name="prox_auto_speaker_delay_dialog_title">Atraso do viva-voz em (ms)</string>
-  <string name="prox_auto_speaker_delay_summary">Alto-falante será ativado em <xliff:g id="number">%d</xliff:g> ms</string>
-  <string name="prox_auto_speaker_incall_only_title">Apenas em ligação</string>
-  <string name="prox_auto_speaker_incall_only_summary_on">Em chamadas de saída, ouvinte só ficará ativo após a chamada for atendida</string>
-  <string name="prox_auto_speaker_incall_only_summary_off">Ouvinte estará ativo durante todos os estados da chamada offhook (padrão)</string>
 
   <!-- Call Recording -->
   <string name="call_recording_category_title">Gravação de chamadas</string>
