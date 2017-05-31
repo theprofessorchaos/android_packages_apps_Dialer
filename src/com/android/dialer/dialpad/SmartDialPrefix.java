@@ -92,7 +92,7 @@ public class SmartDialPrefix {
 
         /** Sets a layout for SmartDial depending on current UI language.*/
         String locale = context.getResources().getConfiguration().locale.getCountry();
-        if (locale.equals("RU")) {
+        if (locale.equals("RU") || locale.equals("UA")) {
             mMap = new RussianSmartDialMap();
         } else {
             mMap = new LatinSmartDialMap();
